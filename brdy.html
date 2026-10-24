@@ -1,0 +1,623 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Bestie 💖</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #a18cd1);
+    color: white;
+
+}
+
+/* SLIDES */
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+    transition: 0.8s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+/* CARD */
+
+.card {
+    width: 95%;
+    max-width: 650px;
+    text-align: center;
+
+    padding: 40px 30px;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 30px;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.emoji {
+    font-size: 70px;
+    margin-bottom: 15px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px white;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* BUTTON */
+
+button {
+    margin-top: 30px;
+
+    padding: 14px 30px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: white;
+    color: #ff4f81;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px white;
+}
+
+/* REASONS */
+
+.reasons {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.reason {
+    margin: 12px 0;
+    padding: 12px 15px;
+
+    background: rgba(255,255,255,0.12);
+    border-radius: 15px;
+}
+
+/* PHOTO */
+
+.photo {
+    width: 180px;
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid white;
+
+    margin: 15px;
+
+    box-shadow: 0 0 25px rgba(255,255,255,0.7);
+}
+
+/* FINAL */
+
+.final {
+    font-size: 24px;
+    line-height: 1.7;
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+
+    font-size: 25px;
+
+    animation: float 8s linear infinite;
+
+    z-index: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* CONFETTI */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+
+    font-size: 25px;
+
+    animation: fall 4s linear forwards;
+
+    z-index: 10;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+@media(max-width:600px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .card {
+        padding: 30px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- ================= SLIDE 1 ================= -->
+
+<section class="slide active" id="slide1">
+
+<div class="card">
+
+<div class="emoji">🎂✨</div>
+
+<h1>Happy Birthday! 🎉</h1>
+
+<h2>Meriiiiii Dumboooooo💕</h2>
+
+<p>
+Today is a very special day because
+someone incredibly special was born. 🥹
+</p>
+
+<p>
+And yes... I'm talking about <b>Myyy Loveeee....My Drlngg.....My Jaanuuuu.......My Worlddd</b> ❤️
+</p>
+
+<!-- Song Button -->
+<button onclick="playLoveSong()">
+    💖 Click if you love me 💖
+</button>
+
+<br><br>
+<h2>Now Press the Button Below</h2>
+
+<!-- Next Slide Button -->
+<button onclick="nextSlide()">
+    🎁 Open Your Surprise ❤️
+</button>
+
+<!-- Song -->
+<audio id="birthdayMusic" loop>
+    <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playLoveSong() {
+    const music = document.getElementById("birthdayMusic");
+    music.play();
+}
+</script>
+
+</div>
+
+</section>
+
+
+<!-- ================= SLIDE 2 ================= -->
+
+<section class="slide" id="slide2">
+
+<div class="card">
+
+<div class="emoji">💌</div>
+
+<h1>A Little Message For You</h1>
+
+<p>
+My Football, ❤️
+</p>
+
+<p>
+Life becomes a little more fun,
+a little more crazy and a lot more
+beautiful when you have a friend like you.
+</p>
+
+<p>
+Thank you for all the laughs,
+the random conversations,
+the secrets, the fights,
+and all those unforgettable memories. 🥹💖
+</p>
+
+<button onclick="nextSlide()">
+There's More... 💕
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= SLIDE 3 ================= -->
+
+<section class="slide" id="slide3">
+
+<div class="card">
+
+<div class="emoji">🌸</div>
+
+<h1>Why You're Special For Me💖</h1>
+
+<div class="reasons">
+
+
+<div class="reason">
+😂 You can turn even boring moments funny by showing your dumbness which I love the most.
+</div>
+
+<div class="reason">
+💖 You genuinely care about the people you love.
+</div>
+
+<div class="reason">
+✨ You have your own beautiful way of making life better.
+</div>
+
+<div class="reason">
+🥹 And honestly... you're irreplaceable.
+</div>
+
+</div>
+
+<button onclick="nextSlide()">
+One More Surprise 📸
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= SLIDE 4 ================= -->
+
+<section class="slide" id="slide4">
+
+<div class="card">
+
+<div class="emoji">📸💞</div>
+
+<h1>Our Memories</h1>
+
+<p>
+Some friendships are measured in years...
+</p>
+
+<p>
+But the best ones are measured in
+<strong>memories.</strong> ❤️
+</p>
+
+<!--
+    REPLACE THESE IMAGE LINKS
+    WITH YOUR OWN PHOTOS
+-->
+
+<img
+class="photo"
+src="C:\Users\kumar\OneDrive\Desktop\brdy H\WhatsApp Image 2026-09-17 at 11.48.10 PM.jpeg"
+alt="Our Memory">
+
+<p>
+Every picture has a story.
+And I hope we create hundreds more. 🥹💕
+</p>
+
+<button onclick="nextSlide()">
+Keep Going ✨
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= SLIDE 5 ================= -->
+
+<section class="slide" id="slide5">
+
+<div class="card">
+
+<div class="emoji">🎁</div>
+
+<h1>Wait... There's A Secret! 🤫</h1>
+
+<p>
+I was going to keep this hidden...
+</p>
+
+<p>
+But since it's your birthday,
+you deserve to know. 👀
+</p>
+
+<button onclick="revealSecret()">
+Open The Secret 💝
+</button>
+
+<p id="secret"
+style="display:none; margin-top:25px;">
+
+You are one of the most precious people
+in my life. ❤️
+
+<br><br>
+
+No matter where life takes us,
+I hope our friendship always remains
+something special.
+
+<br><br>
+
+<strong>
+Best friends today, tomorrow
+and  forever. 🫶
+</strong>
+
+</p>
+
+<button
+id="continueBtn"
+style="display:none;"
+onclick="nextSlide()">
+
+There's One Last Thing... 🥹
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= SLIDE 6 ================= -->
+
+<section class="slide" id="slide6">
+
+<div class="card">
+
+<div class="emoji">🎉🎂💖</div>
+
+<h1>Happy Birthday!</h1>
+
+<h2>Meriiii Pyaariii Mottiiiii Cutieeeeee Dumboooooo Babyyyyy Girlllll 🌸</h2>
+
+<p class="final">
+
+May you always have reasons to smile. 😊
+
+<br>
+
+May all your dreams come true. ✨
+
+<br>
+
+May you always stay the amazing person
+you are. 💕
+
+<br><br>
+
+And most importantly...
+
+<br>
+
+<strong>
+Never forget ,Yourrr Chamgadad loveeessssss u theeeee mosttttttt. ❤️
+</strong>
+
+</p>
+
+<button onclick="celebrate()">
+🎊 One Last Surprise 🎊
+</button>
+
+<p id="celebration"
+style="display:none; margin-top:25px;">
+
+🎉🎉🎉
+
+<br><br>
+
+HAPPY BIRTHDAY SOHNEYOOOOOO!!! ❤️
+
+<br><br>
+
+🥳 🎂 💖 🌸 ✨ 🎁 🫶
+
+<br><br>
+
+Here's to another year
+of crazy memories together! 😂❤️
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- FLOATING HEARTS -->
+
+<div class="heart" style="left:10%; animation-delay:1s;">💖</div>
+<div class="heart" style="left:25%; animation-delay:3s;">💕</div>
+<div class="heart" style="left:45%; animation-delay:5s;">💗</div>
+<div class="heart" style="left:65%; animation-delay:2s;">💞</div>
+<div class="heart" style="left:85%; animation-delay:4s;">💓</div>
+
+
+<script>
+
+let currentSlide = 1;
+
+function nextSlide() {
+
+    document
+        .getElementById("slide" + currentSlide)
+        .classList.remove("active");
+
+    currentSlide++;
+
+    document
+        .getElementById("slide" + currentSlide)
+        .classList.add("active");
+}
+
+
+/* SECRET BUTTON */
+
+function revealSecret() {
+
+    document.getElementById("secret").style.display = "block";
+
+    document.getElementById("continueBtn").style.display = "inline-block";
+}
+
+
+/* FINAL CELEBRATION */
+
+function celebrate() {
+
+    document.getElementById("celebration").style.display = "block";
+
+    createConfetti();
+}
+
+
+/* CONFETTI */
+
+function createConfetti() {
+
+    const emojis = [
+        "🎉",
+        "💖",
+        "💕",
+        "✨",
+        "🎊",
+        "🌸",
+        "🥳"
+    ];
+
+    for(let i = 0; i < 40; i++) {
+
+        const confetti =
+            document.createElement("div");
+
+        confetti.className = "confetti";
+
+        confetti.innerHTML =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        confetti.style.left =
+            Math.random() * 100 + "%";
+
+        confetti.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 5000);
+    }
+}
+
+</script>
+<script>
+function startSurprise() {
+    const music = document.getElementById("birthdayMusic");
+    music.play();
+
+    // Your other birthday effects can go here
+}
+</script>
+
+</body>
+</html>
+```
